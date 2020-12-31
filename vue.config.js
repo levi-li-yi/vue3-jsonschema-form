@@ -1,0 +1,10 @@
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin')
+const CircularDependencyPlugin = require('circular-dependency-plugin')
+
+module.exports = {
+  // 扩展webpack配置
+  chainWebpack (config) {
+    config.plugin('monaco').use(new MonacoWebpackPlugin())
+    config.plugin('circular').use(new CircularDependencyPlugin())
+  }
+}
